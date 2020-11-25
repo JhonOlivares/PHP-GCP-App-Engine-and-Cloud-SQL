@@ -1,0 +1,32 @@
+runtime: php55
+runtime_config:
+  document_root: projectname
+
+handlers:
+- url: /css
+  static_dir: css
+- url: /img
+  static_dir: img
+
+- url: /
+  script: /index.php
+
+- url: /index.php
+  script: /index.php
+
+- url: /admin.php
+  script: /admin.php
+
+- url: /process.php
+  script: /process.php
+
+- url: /.*
+  script: not_found.php
+
+
+
+#variables de entorno para la conexion a la base de datos
+env_variables:  
+  MYSQL_DSN: mysql:unix_socket=/cloudsql/dev-pro-j-12345852:southamerica-east1:general-db;dbname=dbaerolinea
+  MYSQL_USER: root
+  MYSQL_PASSWORD: [yourPassword]
